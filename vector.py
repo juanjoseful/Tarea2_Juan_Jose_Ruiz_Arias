@@ -19,7 +19,7 @@ class VectorCartesiano:
     self.magnitud = np.sqrt(np.power(x,2)+np.power(y,2)+np.power(z,2))
 #se sobrecarga multiplicacion
   def __mul__(self, other):
-    return VectorCartesiano(self.x * other.x + self.y * other.y + self.z * other.z)
+    return (self.x * other.x + self.y * other.y + self.z * other.z)
 
 #se crea el producto cruz
   def Cruz(self,other):
@@ -33,18 +33,20 @@ class VectorCartesiano:
         '''Sobrecarga del operador resta'''
         return VectorCartesiano(self.x - other.x, self.y - other.y, self.z - other.z)
 
+  
+
   def Print(self):
     '''Imprime el vector'''
     print(f"[{self.x},{self.y},{self.z}]")
     print("la magnitud del vector es:",self.magnitud)
 
-#a = VectorCartesiano(4,0,3)
-#b= VectorCartesiano(0,1,0)
+a = VectorCartesiano(4,0,3)
+b= VectorCartesiano(0,1,0)
 
-#c= a.Cruz(b)
-#c.Print()
+c= a.Cruz(b)
+c.Print()
 
-
+a*b
 
 class VectorPolar(VectorCartesiano):
   def __init__(self,r,theta,phi):
@@ -63,13 +65,19 @@ class VectorPolar(VectorCartesiano):
     
   def cartesianasAesfericas(self):
 
-    return VectorCartesiano((np.sqrt(np.power(x,2)+np.power(y,2)+np.power(z,2))), (np.arccos(z/(np.sqrt(np.power(x,2)+np.power(y,2)+np.power(z,2))))), (np.arctan(y/x)))
+    return print(VectorCartesiano((np.sqrt(np.power(x,2)+np.power(y,2)+np.power(z,2))), (np.arccos(z/(np.sqrt(np.power(x,2)+np.power(y,2)+np.power(z,2))))), (np.arctan(y/x))))
  
   def Print(self):
     '''Imprime el vector'''
     print(f"[{self.x},{self.y},{self.z}]")
 
+VectorPolar(1,2,4)
 
+a = VectorPolar(4,0,3)
+
+c=a.esfericasAcartesianas()
+
+c.Print()
 
 a = VectorCartesiano(1.5,0,2.4)
 b = VectorCartesiano(0,1,9)
@@ -77,5 +85,7 @@ c = VectorCartesiano(4.2,.05,0)
 
 
 
+productopunto1= a*b
 
+productopunto1.Print()
 
